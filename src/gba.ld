@@ -1,4 +1,5 @@
 OUTPUT_ARCH(arm)
+ENTRY(_entry)
 
 MEMORY {
     rom (rx) : ORIGIN = 0x08000000, LENGTH = 32M
@@ -8,7 +9,7 @@ MEMORY {
 
 SECTIONS
 {
-    .rom 0x08000000 : AT(0x00000000) {
+    .rom 0x08000000 : {
         *(.header)
         . = ALIGN(4);
         *(.text*)
